@@ -34,7 +34,7 @@ public class CategoryController {
     }
 
     // update existing category
-
+    //TODO: Fix issue in update category endpoint
     @PutMapping("/update")
     public ResponseEntity<CategoryDTO> updateCategory(@Valid @RequestBody CategoryDTO categoryDTO, @RequestParam Integer categoryId){
 

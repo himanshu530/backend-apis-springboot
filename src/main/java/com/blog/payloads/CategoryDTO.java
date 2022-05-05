@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 public class CategoryDTO {
 
-    @NotEmpty
+
     private Integer categoryId;
 
     @NotEmpty
