@@ -1,6 +1,7 @@
 package com.blog.controllers;
 
 import com.blog.entitites.User;
+import com.blog.payloads.ApiResponse;
 import com.blog.payloads.UserDTO;
 import com.blog.services.Impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,11 +61,11 @@ public class UserController {
 
     //delete user
     @DeleteMapping("/delete")
-    public ResponseEntity<?> deleteUser(@RequestParam Integer userId){
+    public ResponseEntity<ApiResponse> deleteUser(@RequestParam Integer userId){
 
         this.userService.deleteUser(userId);
 
-        return new ResponseEntity<>(Map.of("message","user deleted successfully"),HttpStatus.OK);
+        return new ResponseEntity<ApiResponse>(new ApiResponse("User deleted ",true), HttpStatus.OK);
 
     }
 
