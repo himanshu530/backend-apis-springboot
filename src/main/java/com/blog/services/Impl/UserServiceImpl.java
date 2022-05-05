@@ -4,6 +4,7 @@ import com.blog.entitites.User;
 import com.blog.payloads.UserDTO;
 import com.blog.repositories.UserRepo;
 import com.blog.services.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.blog.exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
@@ -73,12 +77,14 @@ public class UserServiceImpl implements UserService {
 
     private User DTOtoUser(UserDTO userDTO){
 
-        User user = new User();
-        user.setId(userDTO.getId());
-        user.setName(userDTO.getName());
-        user.setEmail(userDTO.getEmail());
-        user.setPassword(userDTO.getPassword());
-        user.setAbout(userDTO.getAbout());
+//        User user = new User();
+//        user.setId(userDTO.getId());
+//        user.setName(userDTO.getName());
+//        user.setEmail(userDTO.getEmail());
+//        user.setPassword(userDTO.getPassword());
+//        user.setAbout(userDTO.getAbout());
+
+        User user = this.modelMapper.map(userDTO,User.class);
 
         return user;
 
@@ -87,12 +93,14 @@ public class UserServiceImpl implements UserService {
 
     private UserDTO UserToDTO(User user){
 
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setName(user.getName());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setPassword(user.getPassword());
-        userDTO.setAbout(user.getAbout());
+//        UserDTO userDTO = new UserDTO();
+//        userDTO.setId(user.getId());
+//        userDTO.setName(user.getName());
+//        userDTO.setEmail(user.getEmail());
+//        userDTO.setPassword(user.getPassword());
+//        userDTO.setAbout(user.getAbout());
+
+        UserDTO userDTO = this.modelMapper.map(user,UserDTO.class);
 
         return userDTO;
 
