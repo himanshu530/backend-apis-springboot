@@ -18,7 +18,7 @@ import java.util.List;
 @RequestMapping("/api/category")
 public class CategoryController {
 
-    //TODO: Complete the CategoryController endpoints
+
 
     @Autowired
     private CategoryServiceImpl categoryService;

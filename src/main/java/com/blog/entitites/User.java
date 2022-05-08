@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity  // creates a table with this name and attributes in the db
 @NoArgsConstructor
@@ -26,6 +28,10 @@ public class User {
     private String about;
 
     // More fields will be added while authenticating
+
+    // Defining relationship
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Post> post = new ArrayList<>();
 
 
 

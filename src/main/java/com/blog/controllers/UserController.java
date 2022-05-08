@@ -17,7 +17,7 @@ import java.util.Map;
 @RequestMapping("/api/users")
 public class UserController {
 
-    // TODO: Create controller endpoints
+    // TODO: Issue in user controller endpoints. Getting updated in db but wrong response is returned
     @Autowired
     private UserServiceImpl userService;
 

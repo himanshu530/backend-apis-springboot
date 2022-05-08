@@ -3,6 +3,8 @@ package com.blog.entitites;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -20,6 +22,12 @@ public class Category {
 
     @Column(name = "description")
     private String categoryDescription;
+
+
+    // Defining relationship
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<Post> post = new ArrayList<>();
+
 
 
 
